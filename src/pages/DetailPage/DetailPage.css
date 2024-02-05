@@ -1,0 +1,17 @@
+.detail_data {
+  display: inline-block;
+  margin-top: 70px;
+}
+
+.data_info {
+  text-align: center;
+}
+
+.detail_data img {
+  width: 100vw;
+  max-width: 70%;
+}
+
+.data_text {
+  margin-top: 10px;
+}
