@@ -2,10 +2,18 @@ import axios from 'axios';
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './DetailPage.css'
+import { GoogleMap, LoadScript, MarkerF } from '@react-google-maps/api';
 
 const DetailPage = () => {
   const contentTitle = useParams();
   const [tour, setTour] = useState(null);
+
+  const containerStyle = {
+  width: '700px',
+    height: '400px',
+  margin: 'auto'
+};
+
 
   useEffect(() => {
     async function fetchData() {
@@ -15,9 +23,6 @@ const DetailPage = () => {
         `https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=D6HvbqfFj6otDTGY3883h0C51xIplWlMUXEF%2Bl5ZX9DTpTTNODdcI%2F6StO1BbYtjTAtOOKyj25hhnMVj4ASszw%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=A&&contentTypeId=12&keyword=${newContentTitle}`
       )
       setTour(response.data.response.body.items.item[0]);
-      console.log('상세페이지 데이터:', response.data.response.body.items.item[0]);
-      
-
     }
     fetchData();
   }, [contentTitle])
@@ -33,7 +38,21 @@ const DetailPage = () => {
             <h1>{tour.title}</h1>
             <p>{`주소: ${tour.addr1} ${tour.addr2}`}</p>
           </div>
-        </div>
+          <br />
+            <LoadScript
+              googleMapsApiKey="AIzaSyAMUowo4dL4hO_oLvHA3CvHyINSAXjUIjI"
+              loadingElement={<div style={{ height: '100%' }} />}
+            >
+              <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={{lat: parseFloat(tour.mapy), lng: parseFloat(tour.mapx)}}
+                zoom={14}
+              >
+                <MarkerF position={{lat: parseFloat(tour.mapy), lng: parseFloat(tour.mapx)}}/>
+              </GoogleMap>
+            </LoadScript>
+          <br />
+          </div>
       </div>
     </section>
   )
