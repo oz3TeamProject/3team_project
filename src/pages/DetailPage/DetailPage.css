@@ -1,17 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Diphylleia&family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;200;300;400;800&family=Single+Day&display=swap');
+
+.detail_background {
+  display: flex;
+  align-items: center;
+  background-color: rgb(150, 212, 252);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.detail_container {
+  margin-top: 30px;
+  align-items: center;
+}
+
+.detail_circle {
+  width: 100vw;
+  max-width: 50%;
+  height: 225px;
+  background-color: rgb(70, 179, 252);
+  border-radius: 225px 225px 0 0;
+  margin: 70px auto 0 auto;
+  color: white;
+  text-align: center;
+  line-height: 225px;
+  font-size: 50px;
+  font-family: 'Black Han Sans', sans-serif;
+  font-family: 'Diphylleia', serif;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Nanum Pen Script', cursive;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Single Day', cursive;
+  z-index: 1;
+}
+
+.detail_section {
+  padding: 20px 0;
+  left: 0;
+  right: 0;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 10px;
+  margin: -70px auto 0 auto;
+  z-index: 1000;
+}
+
 .detail_data {
   display: inline-block;
-  margin-top: 70px;
 }
 
 .data_info {
   text-align: center;
 }
 
+.detail_title {
+  font-size: 3em;
+  margin: 20px auto;
+  font-weight: bold;
+
+}
+
 .detail_data img {
   width: 100vw;
-  max-width: 70%;
+  max-width: 60%;
+  border-radius: 10px;
 }
 
 .data_text {
   margin-top: 10px;
+}
+
+.map {
+  width: "800px";
+  height: "400px";
+  margin: "auto";
 }
