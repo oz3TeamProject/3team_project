@@ -45,7 +45,19 @@ const DetailPage = () => {
   return (
     <div className="detail_background">
       <div className="detail_container">
-        <div className="detail_circle">우리나라 관광지</div>
+        <div className="detail_container_top">
+          <img
+            src="images/detail_image1.png"
+            alt="left 이미지"
+            className="detail_img_logo1"
+          />
+          <div className="detail_circle">우리나라 관광지</div>
+          <img
+            src="images/detail_image2.png"
+            alt="left 이미지"
+            className="detail_img_logo2"
+          />
+        </div>
         <section className="detail_section">
           <div className="detail_data">
             <div className="data_info">
