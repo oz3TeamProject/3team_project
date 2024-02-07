@@ -41,7 +41,20 @@ const SearchPage = () => {
           <div className="tour" key={item.contentid}>
             <div
               className="tour_column_img"
-              onClick={() => navigate(`/${item.title}`)}
+              onClick={() =>
+                navigate(`/${item.title}`, {
+                  state: {
+                    title: item.title,
+                    firstimage: item.firstimage,
+                    contentid: item.contentid,
+                    addr1: item.addr1,
+                    addr2: item.addr2,
+                    tel: item.tel,
+                    mapx: item.mapx,
+                    mapy: item.mapy,
+                  },
+                })
+              }
             >
               <img
                 className="tour_img"
