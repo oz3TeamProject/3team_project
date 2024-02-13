@@ -12,12 +12,13 @@
 }
 .modal{
     position: relative;
-    max-width: 800px;
+    max-width: 700px;
     background-color: rgb(0 0 0 /50%);
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 16px;
     transform: all 400ms ease-in-out 2s;
-    animation: fadeIn 400ms;
+    animation: fadeIn 600ms;
+    box-shadow: 0 0 40px rgb(255 255 255 / 71%);
 }
 .modal__place-img{
     width: 100%;
@@ -46,7 +47,7 @@
 
 .modal__details{
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .modal__addr1, .modal__addr2{
