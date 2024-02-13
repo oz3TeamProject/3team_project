@@ -14,12 +14,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import styled from "styled-components";
 
-const Row = ({city, title, id}) =>{
-    const fetchUrl='https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=D6HvbqfFj6otDTGY3883h0C51xIplWlMUXEF%2Bl5ZX9DTpTTNODdcI%2F6StO1BbYtjTAtOOKyj25hhnMVj4ASszw%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=A&keyword=%EA%B0%95%EC%9B%90&contentTypeId=12' 
-
+const Row = ({city}) =>{
+    const fetchUrl=`https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=D6HvbqfFj6otDTGY3883h0C51xIplWlMUXEF%2Bl5ZX9DTpTTNODdcI%2F6StO1BbYtjTAtOOKyj25hhnMVj4ASszw%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=A&keyword=${city}&contentTypeId=12` 
+    
     const [places, setPlaces] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
-
     //현재 선택된 장소에 대한 data
     const [placeSelected, setPlaceSelected]= useState({});
 
@@ -33,6 +32,7 @@ const Row = ({city, title, id}) =>{
             const response = await axios.get(fetchUrl);
             setPlaces(response.data.response.body.items.item);
             console.log(response.data.response.body.items.item);
+            
         }catch(error){
             console.error('Error fetching data:', error);
         }
@@ -85,7 +85,7 @@ const Row = ({city, title, id}) =>{
                             <Wrap>
                                 <img
                                     className="row__place"
-                                    src={place.firstimage ? place.firstimage : "images/no_img.jpg"}
+                                    src={place.firstimage ? place.firstimage : place.firstimage2}
                                     alt={place.title}
                                     onClick={()=>handleClick(place)}
                                 />

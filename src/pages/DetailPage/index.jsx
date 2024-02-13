@@ -1,5 +1,4 @@
 const DetailPage = () => {
-
   return (
     <div>
       DetailPage
