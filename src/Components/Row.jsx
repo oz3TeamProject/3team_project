@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../api/api";
 import { useCallback, useEffect, useState } from "react";
 import PlaceModal from "./Modal";
 import './Row.css';
@@ -29,14 +29,19 @@ const Row = ({city}) =>{
 
     const fetchTourPlaces = useCallback(async () =>{
         try{
-            const response = await axios.get(fetchUrl);
+            const response = await axios.get("",{
+                params: {
+                    numOfRows: 20,
+                    keyword: city,
+                  },
+            });
             setPlaces(response.data.response.body.items.item);
             console.log(response.data.response.body.items.item);
             
         }catch(error){
             console.error('Error fetching data:', error);
         }
-    },[fetchUrl])
+    })
 
     useEffect(()=>{
         fetchTourPlaces();

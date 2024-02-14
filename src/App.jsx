@@ -1,7 +1,8 @@
 
+import styled from 'styled-components';
 import './App.css'
 
-import Row from './Components/Row'
+import Row from './components/Row';
 
 function App() {
   // 아래 주소 사용하시면 됩니다. 저희는 주소뒤에 키워드 부분만 만지면 됩니다!
@@ -10,12 +11,19 @@ function App() {
   const cityArray = ["강원", "경기", "서울", "인천", "충북", "충남", "경북", "경남", "전북", "전남", "제주"];
   
   return (
-    <div>
+    <Container>
       {cityArray.map(city => (
         <Row key={city} id={city} city={city}/>
       ))}
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.main`
+  position: relative;
+  display: block;
+  top: 70px;
+  padding: 0 calc(3.5vw + 5px);
+`
 
 export default App
